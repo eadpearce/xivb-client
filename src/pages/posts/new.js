@@ -32,7 +32,7 @@ class NewPost extends Component {
       return;
     }
     if (this.state.post.author_id === Auth.currentUser()) {
-      Auth.fetch('/api/posts', {
+      Auth.fetch(`${process.env.API_URL}/api/posts`, {
         method: 'POST',
         body: {
           title: this.state.post.title,
@@ -43,7 +43,7 @@ class NewPost extends Component {
         this.props.router.push('/');
       });
     } else {
-      Auth.fetch('/api/posts', {
+      Auth.fetch(`${process.env.API_URL}/api/posts`, {
         method: 'POST',
         body: {
           title: this.state.post.title,
@@ -60,7 +60,7 @@ class NewPost extends Component {
     this.fetchUser();
   }
   fetchUser() {
-    Auth.fetch(`/api/users/${Auth.currentUser()}`, {})
+    Auth.fetch(`${process.env.API_URL}/api/users/${Auth.currentUser()}`, {})
     .then(response => {
       this.setState({
         user: response,

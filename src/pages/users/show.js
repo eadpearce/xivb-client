@@ -20,7 +20,7 @@ class User extends Component {
     this.fetchUser();
   }
   fetchUser() {
-    Auth.fetch(`/api/users/${this.props.params.username}`, {})
+    Auth.fetch(`${process.env.API_URL}/api/users/${this.props.params.username}`, {})
     .then(response => {
       if (response.error) {
         this.setState({ error: response.error, loaded: true });

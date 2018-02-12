@@ -16,7 +16,7 @@ class Users extends Component {
     this.fetchUsers();
   }
   fetchUsers() {
-    Auth.fetch('/api/users', {})
+    Auth.fetch(`${process.env.API_URL}/api/users`, {})
     .then(response => {
       this.setState({ users: response, loaded: true });
     });

@@ -19,7 +19,7 @@ class EditPost extends Component {
     this.fetchPost();
   }
   fetchPost() {
-    Auth.fetch(`/api/posts/${this.props.params.postId}`, {})
+    Auth.fetch(`${process.env.API_URL}/api/posts/${this.props.params.postId}`, {})
     .then(response => {
       this.setState({
         post: response,
@@ -35,7 +35,7 @@ class EditPost extends Component {
   }
   onSubmit(e) {
     e.preventDefault();
-    Auth.fetch(`/api/posts/${this.props.params.postId}`, {
+    Auth.fetch(`${process.env.API_URL}/api/posts/${this.props.params.postId}`, {
       method: 'PATCH',
       body: {
         title: this.state.post.title,

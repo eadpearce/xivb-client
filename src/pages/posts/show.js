@@ -19,7 +19,7 @@ class Post extends Component {
     this.fetchPost();
   }
   fetchPost() {
-    Auth.fetch(`/api/posts/${this.props.params.postId}`, {})
+    Auth.fetch(`${process.env.API_URL}/api/posts/${this.props.params.postId}`, {})
     .then(response => {
       if (!response.error) this.setState({ post: response, loaded: true });
       else this.setState({ error: response.error, loaded: true });

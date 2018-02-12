@@ -16,7 +16,7 @@ class Posts extends Component {
     this.fetchPosts();
   }
   fetchPosts() {
-    Auth.fetch(`/api/users/${this.props.params.username}/posts`, {})
+    Auth.fetch(`${process.env.API_URL}/api/users/${this.props.params.username}/posts`, {})
     .then(posts => {
       const sorted_posts = posts.sort((a,b) => {
         return new Date(a.created_at).getTime() - new Date(b.created_at).getTime()

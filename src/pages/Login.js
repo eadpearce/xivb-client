@@ -24,7 +24,7 @@ class Login extends Component {
     this.setState({ loaded: false });
     e.preventDefault();
     // send a req to /login with credentials
-    fetch('/api/login', {
+    fetch(`${process.env.API_URL}/api/login`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

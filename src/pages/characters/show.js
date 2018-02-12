@@ -18,7 +18,7 @@ class Character extends Component {
     this.fetchCharacter();
   }
   fetchCharacter() {
-    Auth.fetch(`/api/characters/${this.props.params.characterId}`, {})
+    Auth.fetch(`${process.env.API_URL}/api/characters/${this.props.params.characterId}`, {})
     .then(response => {
       if (response.status > 400) this.setState({ error: response.error, loaded: true });
       else this.setState({ character: response, loaded : true });

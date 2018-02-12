@@ -17,7 +17,7 @@ class Comment extends Component {
     this.fetchComment();
   }
   fetchComment() {
-    Auth.fetch(`/api/comments/${this.props.params.commentId}`, {})
+    Auth.fetch(`${process.env.API_URL}/api/comments/${this.props.params.commentId}`, {})
     .then(response => {
       this.setState({
         comment: response,

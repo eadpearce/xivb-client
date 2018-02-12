@@ -23,7 +23,7 @@ class NewComment extends Component {
   }
   onSubmit(e) {
     e.preventDefault();
-    Auth.fetch('/api/comments', {
+    Auth.fetch(`${process.env.API_URL}/api/comments`, {
       method: 'POST',
       body: {
         post_id: parseInt(this.props.params.postId, 10),

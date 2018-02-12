@@ -16,7 +16,7 @@ class Characters extends Component {
     this.fetchCharacters();
   }
   fetchCharacters() {
-    Auth.fetch('/api/characters', {})
+    Auth.fetch(`${process.env.API_URL}/api/characters`, {})
     .then(response => {
       // console.log(response);
       this.setState({ characters: response });
